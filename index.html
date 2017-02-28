@@ -1,0 +1,75 @@
+<html>
+  <head>
+    <title>Draft List v42</title>
+
+    <!-- Viewport settings-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <!-- Basic style -->
+    <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+      <style>
+      .navbar{
+        margin-bottom: 0;
+        border-radius: 0;
+      }
+      .form-group {
+        margin-bottom: 15px;
+        text-align: left;
+      }
+    </style>
+  </head>
+  <body>
+    <div ng-app="app">
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" ui-sref="home">Draft List v42</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li ng-if="!isAuthenticated"><a ui-sref="login">Log In</a></li>
+              <li ng-if="isAuthenticated"><a ui-sref="home" ng-click="authService.logout()">Log Out</a></li>
+              <li><a ui-sref="home">Manage Beer</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <div ui-view></div>
+    </div>
+    
+
+    <!-- AngularJS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/3.0.3/firebase.js"></script>
+    
+
+
+    
+    <script type="text/javascript" src="auth0-variables.js"></script>
+    
+    <!-- Firebase 
+    <script src="node_modules/firebase/firebase.js"></script> -->
+
+    <!-- AngularFire -->
+    <script src="node_modules/angularfire/dist/angularfire.min.js"></script>
+
+
+    <script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script type="text/javascript" src="bower_components/auth0-lock/build/lock.js"></script>
+    <script type="text/javascript" src="bower_components/angular-lock/dist/angular-lock.js"></script>
+    <script type="text/javascript" src="bower_components/angular-jwt/dist/angular-jwt.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="app.run.js"></script>
+    <script type="text/javascript" src="components/home/home.controller.js"></script>
+    <script type="text/javascript" src="components/login/login.controller.js"></script>
+    <script type="text/javascript" src="components/auth/auth.service.js"></script>
+<script src="https://cdn.firebase.com/libs/angularfire/2.0.1/angularfire.min.js"></script>
+
+
+  
+
+  </body>
+</html>

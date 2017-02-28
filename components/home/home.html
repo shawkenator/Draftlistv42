@@ -1,0 +1,69 @@
+<div class="jumbotron">
+  <h2 class="text-center">Add a Beer</h2>
+  <div class="text-center" ng-if="!isAuthenticated">
+    <p>You are not yet authenticated. <a ui-sref="login">Log in.</a></p>
+  </div>
+  <div class="text-center" ng-if="isAuthenticated">
+    <p>Thank you for logging in! <a href="javascript:;" ng-click="vm.authService.logout()">Log out.</a></p>
+    <h1>Add Beer Form</h1>
+    <!-- <a href=""></a> -->
+
+    <div class="container">
+      
+      <div class="col-md-6"> 
+      <div class="form-group">
+        <label for="beer">Beer Name: </label>
+        <input type="text" class="form-control" ng-model="beername" id="beer">
+
+      </div>
+      <div class="form-group">
+        <label for="brewery">Brewery: </label>
+        <input type="text" class="form-control" id="brewery" ng-model="beerBrand">
+      </div>
+      <div class="form-group">
+        <label for="location">Brewery Location:</label>
+        <input type="text" class="form-control" id="location" ng-model="beerLocation">
+      </div>
+      <div class="form-group">
+        <label for="abv">ABV%:</label>
+        <input type="number" class="form-control" id="abv" ng-model="beerAbv">
+      </div>
+      <div class="form-group">
+        <label for="price">Price:</label>
+        <input type="number" class="form-control" id="price" ng-model="beerPrice">
+      </div>
+      
+      <button type="submit" class="btn btn-default" ng-click="clearform()">Reset</button>
+      <button type="submit" class="btn btn-default" ng-click="addBeer(beername, beerBrand, beerLocation, beerAbv, beerPrice)">Submit</button>
+
+    </div>
+
+      <div class="col-md-6"> 
+
+        <table class="table">
+    <thead>
+      <tr>
+        <th>Beer</th>
+        <th>Brewery</th>
+        <th>Location</th>
+        <th>ABV%</th>
+        <th>Price</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="beer in beersSaved">
+        <td>{{beer.beer}}</td>
+        <td>{{beer.brand}}</td>
+        <td>{{beer.location}}</td>
+        <td>{{beer.abv}}</td>
+        <td>{{beer.price}}</td>
+        <td><i class="fa fa-times-circle" aria-hidden="true" ng-click="removeBeer(beer)"></i></td>
+      </tr>
+    </tbody>
+  </table>
+      
+      </div>
+    </div>
+  </div>
+</div>
